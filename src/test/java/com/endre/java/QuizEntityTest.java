@@ -1,6 +1,5 @@
 package com.endre.java;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -15,10 +14,10 @@ public class QuizEntityTest {
     public void testQuiz() {
         Quiz quiz = new Quiz();
         quiz.setQuestion("Will this work?");
-        quiz.setAns1("Yes");
-        quiz.setAns2("No");
-        quiz.setAns3("Maybe");
-        quiz.setAns4("No idea");
+        quiz.setAnsOne("Yes");
+        quiz.setAnsTwo("No");
+        quiz.setAnsThree("Maybe");
+        quiz.setAnsFour("No idea");
         quiz.setCurrentAns(0);
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("DB");
