@@ -1,5 +1,6 @@
 package com.endre.java;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,16 @@ import javax.persistence.Persistence;
 
 public class QuizEntityTest {
 
+
+    private EntityManager em;
+    private EntityTransaction tx;
+
+    @Before
+    public void setUp() throws Exception {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DB");
+        em = factory.createEntityManager();
+        tx = em.getTransaction();
+    }
 
     @Test
     public void testQuiz() {
@@ -20,14 +31,9 @@ public class QuizEntityTest {
         quiz.setAnsFour("No idea");
         quiz.setCurrentAns(0);
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DB");
-        EntityManager em = factory.createEntityManager();
 
-        EntityTransaction tx = em.getTransaction();
         tx.begin();
-
         em.persist(quiz);
-
         tx.commit();
     }
 }
