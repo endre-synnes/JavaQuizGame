@@ -3,6 +3,7 @@ package com.endre.java;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Quiz {
@@ -10,9 +11,16 @@ public class Quiz {
     @Id @GeneratedValue
     private Long id;
 
+    @ManyToOne
+    private SubCategory subCategory;
+
     private String question;
-    private String ansOne, ansTwo, ansThree, ansFour;
-    private int currentAns;
+    private String firstAnswer, secondAnswer, thirdAnswer, fourthAnswer;
+    private int indexOfCorrectAnswer;
+
+
+    public Quiz() {
+    }
 
     public Long getId() {
         return id;
@@ -30,43 +38,51 @@ public class Quiz {
         this.question = question;
     }
 
-    public String getAnsOne() {
-        return ansOne;
+    public String getFirstAnswer() {
+        return firstAnswer;
     }
 
-    public void setAnsOne(String ans1) {
-        this.ansOne = ans1;
+    public void setFirstAnswer(String ans1) {
+        this.firstAnswer = ans1;
     }
 
-    public String getAnsTwo() {
-        return ansTwo;
+    public String getSecondAnswer() {
+        return secondAnswer;
     }
 
-    public void setAnsTwo(String ans2) {
-        this.ansTwo = ans2;
+    public void setSecondAnswer(String ans2) {
+        this.secondAnswer = ans2;
     }
 
-    public String getAnsThree() {
-        return ansThree;
+    public String getThirdAnswer() {
+        return thirdAnswer;
     }
 
-    public void setAnsThree(String ans3) {
-        this.ansThree = ans3;
+    public void setThirdAnswer(String ans3) {
+        this.thirdAnswer = ans3;
     }
 
-    public String getAnsFour() {
-        return ansFour;
+    public String getFourthAnswer() {
+        return fourthAnswer;
     }
 
-    public void setAnsFour(String ans4) {
-        this.ansFour = ans4;
+    public void setFourthAnswer(String ans4) {
+        this.fourthAnswer = ans4;
     }
 
-    public int getCurrentAns() {
-        return currentAns;
+    public int getIndexOfCorrectAnswer() {
+        return indexOfCorrectAnswer;
     }
 
-    public void setCurrentAns(int currentAns) {
-        this.currentAns = currentAns;
+    public void setIndexOfCorrectAnswer(int currentAns) {
+        this.indexOfCorrectAnswer = currentAns;
+    }
+
+    public SubCategory getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
     }
 }

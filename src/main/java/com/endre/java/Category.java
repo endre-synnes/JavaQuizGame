@@ -1,20 +1,35 @@
 package com.endre.java;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Category {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
+
     private String name;
 
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    private List<SubCategory> subCategories;
+
+
+
     public Category() {
+        subCategories = new ArrayList<>();
     }
 
+    public List<SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubCategory> subCategories) {
+        this.subCategories = subCategories;
+    }
 
     public Long getId() {
         return id;

@@ -3,6 +3,7 @@ package com.endre.java;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class SubCategory {
@@ -12,9 +13,19 @@ public class SubCategory {
 
     private String name;
 
+    @ManyToOne
+    private Category parent;
+
     public SubCategory() {
     }
 
+    public Category getParent() {
+        return parent;
+    }
+
+    public void setParent(Category parent) {
+        this.parent = parent;
+    }
 
     public Long getId() {
         return id;
