@@ -1,7 +1,10 @@
 package com.endre.java;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +15,9 @@ public class Category {
     @GeneratedValue
     private Long id;
 
+    @NotBlank
+    @Size(max = 128)
+    @Column(unique = true)
     private String name;
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)

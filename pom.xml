@@ -12,8 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.h2>1.4.194</version.h2>
-    <version.hibernate-core>5.2.12.Final</version.hibernate-core>
+    <version.h2>1.4.196</version.h2>
+    <version.hibernate-core>5.2.9.Final</version.hibernate-core>
   </properties>
 
 
@@ -32,6 +32,21 @@
       <version>${version.hibernate-core}</version>
       <scope>provided</scope>
     </dependency>
+      <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>5.3.4.Final</version>
+        <scope>provided</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.glassfish.web/javax.el -->
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>javax.el</artifactId>
+      <version>2.2.4</version>
+        <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class QuizEntityTest {
@@ -57,7 +58,7 @@ public class QuizEntityTest {
         quiz.setFourthAnswer("No idea");
         quiz.setIndexOfCorrectAnswer(0);
 
-        assertTrue(persistInATransaction(quiz));
+        assertFalse(persistInATransaction(quiz));
     }
 
 
