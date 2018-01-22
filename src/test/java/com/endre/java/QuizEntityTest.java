@@ -12,41 +12,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class QuizEntityTest {
+public class QuizEntityTest extends EntityTestBase{
 
-
-    private EntityManager em;
-    private EntityManagerFactory factory;
-
-    @Before
-    public void setUp() throws Exception {
-        factory = Persistence.createEntityManagerFactory("DB");
-        em = factory.createEntityManager();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        em.close();
-        factory.close();
-    }
-
-
-    private boolean persistInATransaction(Object... obj) {
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        try {
-            for (Object o : obj) {
-                em.persist(o);
-            }
-            tx.commit();
-        } catch (Exception e){
-            System.out.println("FAILED TRANSACTION: " + e.toString());
-            tx.rollback();
-            return false;
-        }
-        return true;
-    }
 
     @Test
     public void testQuiz() {
@@ -133,14 +100,16 @@ public class QuizEntityTest {
 
         assertTrue(persistInATransaction(a,b,c,d));
 
-        TypedQuery<Quiz> queryJPA = em.createQuery("select q from Quiz q where q.subCategory = ?1", Quiz.class);
+        TypedQuery<Quiz> queryJPA = em.createQuery(
+                "select q from Quiz q where q.subCategory = ?1", Quiz.class);
         queryJPA.setParameter(1, jpa);
         List<Quiz> jpaQuizzes = queryJPA.getResultList();
         assertEquals(2, jpaQuizzes.size());
         assertTrue(jpaQuizzes.stream().anyMatch(q -> q.getQuestion().equals("a")));
         assertTrue(jpaQuizzes.stream().anyMatch(q -> q.getQuestion().equals("b")));
 
-        TypedQuery<Quiz> queryJEE = em.createQuery("select q from Quiz q where q.subCategory.parent = ?1", Quiz.class);
+        TypedQuery<Quiz> queryJEE = em.createQuery(
+                "select q from Quiz q where q.subCategory.parent = ?1", Quiz.class);
         queryJEE.setParameter(1, jee);
         List<Quiz> jeeQuizzes = queryJEE.getResultList();
         assertEquals(4, jeeQuizzes.size());
