@@ -27,7 +27,9 @@
             <!-- for now we use an embedded database (ie H2), just for testing-->
             <property name="connection.driver_class" value="org.h2.Driver"/>
             <!-- specify we are connecting to a H2 database -->
-            <property name="hibernate.connection.url" value="jdbc:h2:./target/db"/>
+            <!-- Note: the LOCK_TIMEOUT (expressed in ms), default is usually 1_000 -->
+            <property name="hibernate.connection.url" value="jdbc:h2:./target/db;LOCK_TIMEOUT=10000"/>
+
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <!--
             This will make sure we use a new database at each new connection (ie EntityManagerFactory),
