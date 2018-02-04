@@ -1,7 +1,7 @@
 package com.endre.java.ejb;
 
-import com.endre.java.Category;
-import com.endre.java.SubCategory;
+import com.endre.java.entity.Category;
+import com.endre.java.entity.SubCategory;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

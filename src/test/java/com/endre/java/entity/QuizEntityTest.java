@@ -1,7 +1,5 @@
-package com.endre.java;
+package com.endre.java.entity;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.*;

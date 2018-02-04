@@ -1,4 +1,4 @@
-package com.endre.java;
+package com.endre.java.entity;
 
 import org.hibernate.validator.constraints.NotBlank;
 

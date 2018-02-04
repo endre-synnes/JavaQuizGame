@@ -1,4 +1,4 @@
-package com.endre.java;
+package com.endre.java.entity;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,8 +10,8 @@ import javax.persistence.Persistence;
 
 public abstract class EntityTestBase {
 
-    protected EntityManager em;
     private EntityManagerFactory factory;
+    protected EntityManager em;
 
     @Before
     public void init() throws Exception{
