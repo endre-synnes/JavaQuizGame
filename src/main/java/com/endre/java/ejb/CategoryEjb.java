@@ -47,7 +47,7 @@ public class CategoryEjb{
     }
 
 
-
+    // Specify if you want to force load the subCategory of all categories
     public List<Category> getAllCategories(boolean withSub){
         TypedQuery<Category> query = em.createQuery("select c from Category c", Category.class);
         List<Category> categories = query.getResultList();

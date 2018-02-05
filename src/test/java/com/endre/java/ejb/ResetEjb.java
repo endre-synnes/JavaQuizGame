@@ -4,11 +4,13 @@ import com.endre.java.entity.Category;
 import com.endre.java.entity.Quiz;
 import com.endre.java.entity.SubCategory;
 
+import javax.ejb.Stateless;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+@Stateless
 public class ResetEjb {
 
     @PersistenceContext

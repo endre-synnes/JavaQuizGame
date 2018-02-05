@@ -1,5 +1,6 @@
 package com.endre.java.ejb;
 
+import com.endre.java.entity.Category;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -12,6 +13,7 @@ import static org.junit.Assert.*;
 
 
 import javax.ejb.EJB;
+import java.util.List;
 
 @RunWith(Arquillian.class)
 public class CategoryEjbTest {
@@ -37,7 +39,17 @@ public class CategoryEjbTest {
 
     @Test
     public void testNoCategory() {
-        assertEquals(0, ctgEjb.getAllCategories(false).size());
+        List<Category> list = ctgEjb.getAllCategories(false);
+
+        assertEquals(0, list.size());
+    }
+
+    @Test
+    public void testCreateCategory() {
+        String name = "cars";
+        Long id = ctgEjb.createCategory(name);
+        assertEquals(name, ctgEjb.getCategory(id, false).getName());
+
 
     }
 }
