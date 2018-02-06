@@ -7,6 +7,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="DB" value="2575d233-d0d3-43f7-b845-4b7a56b8f9e4" />
+          <factory-entry name="JTA" value="ed3cc699-138f-4cc8-a5c2-02f8725dbce5" />
           <factory-entry name="wildFly" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
