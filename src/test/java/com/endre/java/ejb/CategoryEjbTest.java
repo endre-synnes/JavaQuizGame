@@ -16,27 +16,11 @@ import static org.junit.Assert.*;
 import javax.ejb.EJB;
 import java.util.List;
 
-@RunWith(Arquillian.class)
-public class CategoryEjbTest {
-
-    @Deployment
-    public static JavaArchive createDeployment(){
-        return ShrinkWrap.create(JavaArchive.class)
-                .addPackages(true, "com.endre.java")
-                .addAsResource("META-INF/persistence.xml");
-    }
-
+public class CategoryEjbTest extends EjbTestBase{
 
     @EJB
     private CategoryEjb ctgEjb;
 
-    @EJB
-    private ResetEjb resetEjb;
-
-    @Before
-    public void setUp() throws Exception {
-        resetEjb.resetDatabase();
-    }
 
     @Test
     public void testNoCategory() {

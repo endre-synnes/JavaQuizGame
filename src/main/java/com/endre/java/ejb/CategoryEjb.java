@@ -29,11 +29,11 @@ public class CategoryEjb{
     }
 
 
-    public Long createSubCategory(Long parentId, String name) throws IllegalAccessException {
+    public Long createSubCategory(Long parentId, String name) {
 
         Category category = em.find(Category.class, parentId);
         if (category == null){
-            throw new IllegalAccessException("Could not find matching parent Category");
+            throw new IllegalArgumentException("Could not find matching parent Category");
         }
         SubCategory subCategory = new SubCategory();
         subCategory.setParent(category);
