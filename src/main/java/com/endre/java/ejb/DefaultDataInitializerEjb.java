@@ -1,10 +1,10 @@
 package com.endre.java.ejb;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import javax.ejb.*;
 import java.util.function.Supplier;
+
+import static javax.ejb.TransactionAttributeType.NOT_SUPPORTED;
 
 @Singleton
 @Startup
@@ -16,7 +16,9 @@ public class DefaultDataInitializerEjb {
     @EJB
     private QuizEjb quizEjb;
 
+    //@TransactionAttribute(NOT_SUPPORTED) do so that every transactions is independent
     @PostConstruct
+    @TransactionAttribute(NOT_SUPPORTED)
     public void initialize(){
         Long ctgC = attempt(() -> categoryEjb.createCategory("Cars"));
         Long ctgH = attempt(() -> categoryEjb.createCategory("History"));

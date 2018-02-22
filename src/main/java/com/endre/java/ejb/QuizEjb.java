@@ -54,6 +54,8 @@ public class QuizEjb {
         return quiz;
     }
 
+
+    //TODO se på fasit (Burde ikke laste alle quizzer)
     public List<Quiz> getRandomQuizzes(int n, long categoryId){
         List<Quiz> allQuizzes = getQuizzes();
 
