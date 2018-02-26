@@ -43,7 +43,7 @@ public class MatchController implements Serializable {
 
         selectedCategoryId = null;
 
-        return "ui/match.jsf&faces-redirect=true";
+        return "/ui/match.jsf&faces-redirect=true";
     }
 
 
