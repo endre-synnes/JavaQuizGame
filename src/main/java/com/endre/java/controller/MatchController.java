@@ -6,12 +6,13 @@ import com.endre.java.entity.Category;
 import com.endre.java.entity.Quiz;
 
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@Named
+@ManagedBean
 @SessionScoped
 public class MatchController implements Serializable {
 
@@ -24,7 +25,7 @@ public class MatchController implements Serializable {
     private QuizEjb quizEjb;
 
 
-    private final int NUMBER_QUIZZES = 5;
+    private final int NUMBER_QUIZZES = 3;
 
     private boolean gameIsOn = false;
     private Long selectedCategoryId;
