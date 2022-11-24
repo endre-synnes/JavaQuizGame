@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.h2>1.4.196</version.h2>
-    <version.hibernate-core>5.2.9.Final</version.hibernate-core>
+    <version.hibernate-core>5.3.20.Final</version.hibernate-core>
   </properties>
 
 
